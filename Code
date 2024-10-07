@@ -48,8 +48,37 @@ class Manager extends Employee {
         this.bonus = bonus; // Manager's bonus
     }
 
-    // Override the getDetails() method to include bonus
-    getDetails() {
-        return `${super.getDetails()}, Bonus: ${this.bonus}`;
-    }
-}
+// Commit: "Create and manage departments and employees"
+const department1 = new Department("Development");
+const department2 = new Department("Design");
+
+// Creating employees
+const emp1 = new Employee("Alice", 60000, "Developer", "Development");
+const emp2 = new Employee("Bob", 70000, "Developer", "Development");
+const manager1 = new Manager("Charlie", 90000, "Senior Developer", "Development", 10000); // Manager with bonus
+
+const emp3 = new Employee("Diana", 50000, "Designer", "Design");
+const emp4 = new Employee("Eve", 55000, "UI/UX Designer", "Design");
+const manager2 = new Manager("Frank", 80000, "Lead Designer", "Design", 8000); // Manager with bonus
+
+// Adding employees to departments
+department1.addEmployee(emp1);
+department1.addEmployee(emp2);
+department1.addEmployee(manager1);
+
+department2.addEmployee(emp3);
+department2.addEmployee(emp4);
+department2.addEmployee(manager2);
+
+// Calculating total salaries for departments
+console.log(`Total Salary for ${department1.name}: $${department1.getDepartmentSalary()}`);
+console.log(`Total Salary with Bonuses for ${department1.name}: $${department1.calculateTotalSalaryWithBonus()}`);
+
+console.log(`Total Salary for ${department2.name}: $${department2.getDepartmentSalary()}`);
+console.log(`Total Salary with Bonuses for ${department2.name}: $${department2.calculateTotalSalaryWithBonus()}`);
+
+// Outputting employee details
+console.log(emp1.getDetails());
+console.log(manager1.getDetails());
+console.log(emp3.getDetails());
+console.log(manager2.getDetails());
