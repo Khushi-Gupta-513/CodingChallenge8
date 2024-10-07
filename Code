@@ -13,3 +13,30 @@ class Employee {
     }
 }
 
+// Commit: "Create Department class to manage employees and calculate salary"
+class Department {
+    constructor(name) {
+        this.name = name;                          // Department's name
+        this.employees = [];                       // Array to store employees
+    }
+
+    // Method to add an employee to the department
+    addEmployee(employee) {
+        this.employees.push(employee);
+    }
+
+    // Method to calculate total salary of employees in the department
+    getDepartmentSalary() {
+        return this.employees.reduce((total, employee) => total + employee.salary, 0);
+    }
+
+    // Method to calculate total salary including bonuses for managers
+    calculateTotalSalaryWithBonus() {
+        return this.employees.reduce((total, employee) => {
+            if (employee instanceof Manager) {
+                return total + employee.salary + employee.bonus; // Include manager's bonus
+            }
+            return total + employee.salary; // Regular employee salary
+        }, 0);
+    }
+}
