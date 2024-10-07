@@ -41,3 +41,16 @@ class Department {
         }, 0);
     }
 }
+
+// Commit: "Create Manager class with inheritance from Employee"
+class Manager extends Employee {
+    constructor(name, salary, position, department, bonus) {
+        super(name, salary, position, department); // Call parent constructor
+        this.bonus = bonus; // Manager's bonus
+    }
+
+    // Override the getDetails() method to include bonus
+    getDetails() {
+        return `${super.getDetails()}, Bonus: ${this.bonus}`;
+    }
+}
