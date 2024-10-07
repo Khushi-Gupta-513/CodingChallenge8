@@ -1,1 +1,15 @@
+// Commit: "Create Employee class with properties and methods"
+class Employee {
+    constructor(name, salary, position, department) {
+        this.name = name;         // Employee's name
+        this.salary = salary;     // Employee's salary
+        this.position = position; // Employee's position
+        this.department = department; // Employee's department
+    }
+
+    // Method to get employee details
+    getDetails() {
+        return `${this.name}, Position: ${this.position}, Salary: ${this.salary}`;
+    }
+}
 
